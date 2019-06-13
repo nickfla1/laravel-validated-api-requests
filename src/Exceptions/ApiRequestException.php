@@ -70,4 +70,12 @@ class ApiRequestException extends Exception
     {
         return $this->request->exceptionReport($this);
     }
+
+    /**
+     * @return MessageBag|null
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
 }
