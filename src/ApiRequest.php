@@ -20,6 +20,19 @@ use Nickfla1\Utilities\Exceptions\ApiRequestException;
 class ApiRequest extends Request
 {
     /**
+     * Defines if the request should fire an ApiRequestException
+     * on validation failure.
+     *
+     * @var bool
+     */
+    protected $firesException = true;
+
+    /**
+     * @var \Illuminate\Contracts\Validation\Validator|null
+     */
+    protected $validator = null;
+
+    /**
      * ApiRequest constructor.
      * @param array $query
      * @param array $request
@@ -61,18 +74,48 @@ class ApiRequest extends Request
         // Create validator
         $messages = $this->messages();
         $customAttributes = $this->customAttributes();
-        $validator = Validator::make($data, $rules, $messages, $customAttributes);
+        $this->validator = Validator::make($data, $rules, $messages, $customAttributes);
 
-        if (!$validator->fails()) {
+        if (!$this->validator->fails()) {
             // Don't do anything if the validation is successful
             return;
         }
 
-        // Throw an Exception on failed validation
-        throw new ApiRequestException(
-            $this,
-            $validator->errors()
-        );
+        if ($this->firesException) {
+            // Throw an Exception on failed validation
+            throw new ApiRequestException(
+                $this,
+                $this->validator->errors()
+            );
+        }
+    }
+
+    /**
+     * Returns true if the the request validation fails.
+     *
+     * @return bool
+     */
+    public function failsValidation()
+    {
+        if (!$this->validator) {
+            return false;
+        }
+
+        return $this->validator->fails();
+    }
+
+    /**
+     * Returns validation errors.
+     *
+     * @return \Illuminate\Support\MessageBag|null
+     */
+    public function validationErrors()
+    {
+        if (!$this->validator) {
+            return null;
+        }
+
+        return $this->validator->errors();
     }
 
     /**
