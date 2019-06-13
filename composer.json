@@ -1,0 +1,23 @@
+{
+    "name": "nickfla1/laravel-validated-api-requests",
+    "description": "Simple base API request with validation mechanisms",
+    "version": "0.0.1",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "nickfla1",
+            "email": "lanterniniflavio@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0",
+        "laravel/framework": ">=5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nickfla1\\Utilities\\ApiRequest\\": "src/"
+        }
+    }
+}
