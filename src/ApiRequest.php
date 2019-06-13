@@ -109,10 +109,11 @@ class ApiRequest extends Request
      * Executed by ApiRequestException to render the exception
      * in case of failed validation.
      *
+     * @param ApiRequestException $exception
      * @param Request|null $request
      * @return Response|null
      */
-    public function exceptionRender($request)
+    public function exceptionRender($exception, $request)
     {
         return null;
     }
@@ -121,9 +122,10 @@ class ApiRequest extends Request
      * Executed in ApiRequestException to report the execption
      * in case of failed validation.
      *
+     * @param ApiRequestException $exception
      * @return mixed|null
      */
-    public function exceptionReport()
+    public function exceptionReport($exception)
     {
         return null;
     }

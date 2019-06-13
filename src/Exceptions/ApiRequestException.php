@@ -60,7 +60,7 @@ class ApiRequestException extends Exception
      */
     public function render(Request $request)
     {
-        return $this->request->exceptionRender($request);
+        return $this->request->exceptionRender($this, $request);
     }
 
     /**
@@ -68,6 +68,6 @@ class ApiRequestException extends Exception
      */
     public function report()
     {
-        return $this->request->exceptionReport();
+        return $this->request->exceptionReport($this);
     }
 }
