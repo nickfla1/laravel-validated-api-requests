@@ -143,10 +143,10 @@ class ApiRequest extends Request
     /**
      * Override ApiRequestException's default code.
      *
-     * @return mixed|null
+     * @return int
      */
     public function exceptionCode()
     {
-        return null;
+        return 0;
     }
 }
