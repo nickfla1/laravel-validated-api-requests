@@ -4,10 +4,16 @@
 ```sh
 composer require nickfla1/laravel-validated-api-requests
 ```
+**Requirements**
+
+| Library/Ext | Version |
+| --- | --- |
+| php | >=7.0.* |
+| laravel/framework | >=5.5 |
 
 ### Basic Usage
 
-Request
+**Request**
 ```php
 use Nickfla1\Utilities\ApiRequest;
 
@@ -36,7 +42,7 @@ class FooRequest extends ApiRequest
 }
 ```
 
-Controller
+**Controller**
 ```php
 class TheController extends Controller
 {
