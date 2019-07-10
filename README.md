@@ -1,5 +1,8 @@
 ## Laravel Validated API Requests
 
+This package allows users to use Laravel validators on requests.
+This package is intented to be used only on API requests as the same behaviour can be achieved for regular requests using Laravel's `FormRequest`.
+
 ### Installation
 ```sh
 composer require nickfla1/laravel-validated-api-requests
