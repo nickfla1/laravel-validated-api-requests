@@ -1,7 +1,7 @@
 {
     "name": "nickfla1/laravel-validated-api-requests",
     "description": "Simple base API request with validation mechanisms",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "type": "library",
     "license": "MIT",
     "authors": [
