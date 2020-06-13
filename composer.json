@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nickfla1\\Utilities\\ApiRequest\\": "src/"
+            "Nickfla1\\": "src/"
         }
     }
 }
